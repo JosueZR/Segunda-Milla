@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Segunda Milla</title>
+    <link rel="stylesheet" href="lo">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-box" action="/php/public/verificacionUser.php" method="POST">
+            <div class="login-header">
+                <img src="../images/logo.png" alt="Logo">
+                <h2>Panel de Control</h2>
+                <p>Ingresa tus credenciales</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+            <a href="/index.html" class="back-link">Volver al sitio</a>
+        </form>
+    </div>
+</body>
+</html>
