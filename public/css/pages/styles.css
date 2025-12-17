@@ -7,6 +7,7 @@
 
 /* ===== FUENTE Y COLOR BASE ===== */
 body {
+    display: block;
     font-family: 'Poppins', sans-serif;
     color: #2d3748;
     background-color: #f7fafc;
@@ -74,13 +75,15 @@ body {
 /* ===== HERO SECTION ===== */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('/public/images/referancia.jpeg') center/cover;
+                url('../../images/referancia.jpeg') center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    position: relative;
     padding: 100px 20px 80px;
 }
 
@@ -132,6 +135,9 @@ body {
 
 /* ===== WELCOME SECTION ===== */
 .welcome {
+    width: 100%;
+    display: block;
+    clear: both;
     background-color: #ffffff;
     padding: 80px 20px;
     text-align: center;

@@ -1,2 +1,5 @@
-@import url("/public/css/pages/styles.css");
-@import url("/public/css/pages/login.css");
+/* 1. Primero el reset y estilos globales */
+@import url("pages/styles.css"); 
+
+/* 2. Al final los estilos específicos con sus propias clases */
+@import url("pages/login.css");
