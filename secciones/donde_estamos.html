@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Dónde Estamos? - Segunda Milla</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/secciones/donde_estamos.css">
+</head>
+<body>
+    <!-- ====== NAVBAR ====== -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="/imangens/logo.png" alt="Segunda Milla" />
+        </div>
+        
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/secciones/que_hacemos.html">¿Qué hacemos?</a></li>
+                <li><a href="/secciones/nosotros.html">Nosotros</a></li>
+                <li><a href="/secciones/donde_estamos.html">¿Dónde estamos?</a></li>
+                <li><a href="/secciones/recursos.html">Recursos</a></li>
+                <li><a href="/secciones/noticias.html">Noticias</a></li>
+                <li><a href="/secciones/eventos.html">Eventos</a></li>
+                <li><a href="/secciones/contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Encabezado principal -->
+    <header class="encabezado">
+        <h1>¿Dónde Estamos?</h1>
+        <p>Ubicación</p>
+    </header>
+
+    <section class="seccion-ubicacion">
+        <!-- Imagen de la Iglesia -->
+        <div class="imagen-iglesia-principal">
+            <img src="/imangens/iglesia.jpg" alt="Fachada de Segunda Milla">
+            <div class="imagen-descripcion">
+                <h3>📍 Nuestra Ubicación</h3>
+                <p>Calle Principal #123, Colonia Centro<br>Tijuana, Baja California, México</p>
+            </div>
+        </div>
+
+        <!-- Horarios de Servicios -->
+        <div class="horarios-servicios">
+            <h3>⏰ Horarios de Servicios</h3>
+            <div class="horarios-grid">
+                <div class="horario-item">
+                    <strong>Domingo</strong>
+                    <p>Servicio Matutino: 10:00 AM<br>Servicio Vespertino: 6:00 PM</p>
+                </div>
+                <div class="horario-item">
+                    <strong>Miércoles</strong>
+                    <p>Estudio Bíblico: 7:00 PM</p>
+                </div>
+                <div class="horario-item">
+                    <strong>Viernes</strong>
+                    <p>Servicio de Jóvenes: 7:30 PM</p>
+                </div>
+                <div class="horario-item">
+                    <strong>Sábado</strong>
+                    <p>Reunión de Oración: 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa de Google Maps -->
+        <div class="mapa-container">
+            <!-- INSTRUCCIÓN: Reemplaza el src con tu ubicación real -->
+            <!-- Para obtener el código de inserción:
+                 1. Ve a Google Maps (https://www.google.com/maps)
+                 2. Busca tu dirección
+                 3. Haz clic en "Compartir"
+                 4. Selecciona "Insertar un mapa"
+                 5. Copia el código iframe y reemplázalo aquí
+            -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.0883739429845!2d-117.03731368481395!3d32.53459498105089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9485c8c1a3b53%3A0x5c5d8b4f6e5d9b4f!2sTijuana%2C%20B.C.%2C%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- Cómo Llegar -->
+        <div class="seccion-ministerios" style="margin-top: 50px;">
+            <h2 class="titulo-seccion">🚗 ¿Cómo Llegar?</h2>
+            <div class="nosotros-contenido">
+                <p>
+                    Nuestra iglesia está ubicada en el corazón de Tijuana, de fácil acceso desde cualquier punto de la ciudad.
+                </p>
+                <div class="valores-lista">
+                    <h4>🚌 Transporte Público:</h4>
+                    <ul>
+                        <li>Rutas de camión: 1, 5, 10, 15 (bajarse en Calle Principal)</li>
+                        <li>Taxi o Uber: "Iglesia Segunda Milla, Centro"</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px;">🚗 En Automóvil:</h4>
+                    <ul>
+                        <li>Desde la línea internacional: 15 minutos por Vía Rápida</li>
+                        <li>Estacionamiento disponible en la calle y estacionamiento privado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

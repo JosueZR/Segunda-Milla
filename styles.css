@@ -1,0 +1,682 @@
+/* ===== REINICIO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== FUENTE Y COLOR BASE ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #2d3748;
+    background-color: #f7fafc;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #33834b;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(223, 219, 219, 0.1);
+}
+
+
+.navbar__logo img {
+    height: 110px;
+    width: auto;
+}
+
+.navbar__menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.navbar__menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar__menu a:hover {
+    color: #4ce1889e;
+}
+
+.btn-donar {
+    background-color: #34b065;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.btn-donar:hover {
+    background-color: #007a30;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 153, 61, 0.3);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('./imangens/referancia.jpeg') center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 80px;
+}
+
+.hero__content {
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 20px;
+    color: white;
+    line-height: 1.2;
+}
+
+.hero__subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero__organization {
+    background: rgba(135, 219, 138, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 40px 60px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.hero__organization h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #9ada9c;
+}
+
+.hero__countries {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #9ada9c;
+    line-height: 1.6;
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.welcome__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #2d3748;
+}
+
+.welcome__content {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.welcome__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #4a5568;
+}
+
+.highlight {
+    color: #00993d;
+    font-weight: 600;
+}
+
+.btn-conocer {
+    background-color: #00993d;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-conocer:hover {
+    background-color: #007a30;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 153, 61, 0.3);
+}
+
+/** =================================================================================================================================================================== **/
+/* ===== ¿Qué somos? ===== */
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ===== ENCABEZADO ===== */
+.encabezado {
+    text-align: center;
+    padding: 140px 20px 100px; /* margen extra por el menú fijo */
+    background: linear-gradient(135deg, #00993d, #007a30);
+    color: white;
+}
+
+.encabezado h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.encabezado p {
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+/* ===== CONTENIDO ===== */
+.contenido {
+    max-width: 1000px;
+    margin: 60px auto;
+    text-align: center;
+    font-size: 1.1em;
+    color: #4a5568;
+    line-height: 1.6;
+    padding: 0 20px;
+    background-color: #f7fafc;
+}
+
+.nombre-iglesia {
+    color: #00993d;
+}
+
+/* ===== TARJETAS ===== */
+.tarjetas {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.tarjeta {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    border-color: #00993d;
+    box-shadow: 0 8px 20px rgba(0, 153, 61, 0.2);
+}
+
+.tarjeta h3 {
+    color: #00993d;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: #4a5568;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar__menu ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta {
+        width: 90%;
+    }
+
+    .encabezado h1 {
+        font-size: 2.2em;
+    }
+}
+
+/* ===== SECCIONES DE MINISTERIOS ===== */
+.seccion-ministerios {
+    margin: 60px 0;
+    padding: 40px 20px;
+}
+
+.titulo-seccion {
+    font-size: 2rem;
+    color: #00993d;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.descripcion-seccion {
+    font-size: 1.1rem;
+    color: #4a5568;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+/* ===== LISTA DE REUNIONES ===== */
+.lista-reuniones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reunion-item {
+    background: #ffffff;
+    border-left: 4px solid #00993d;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.reunion-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 153, 61, 0.15);
+}
+
+.reunion-item h4 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.reunion-item p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin: 5px 0;
+}
+
+.reunion-item strong {
+    color: #00993d;
+}
+
+/* ===== NOSOTROS CONTENIDO ===== */
+.nosotros-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nosotros-contenido p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.valores-lista {
+    background: #f7fafc;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+}
+
+.valores-lista h4 {
+    color: #00993d;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.valores-lista ul {
+    list-style: none;
+    padding: 0;
+}
+
+.valores-lista li {
+    color: #4a5568;
+    padding: 10px 0;
+    font-size: 1.05rem;
+}
+
+/* ===== LEGADO ===== */
+.legado-lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legado-item {
+    background: linear-gradient(135deg, #00993d, #007a30);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 250px;
+    box-shadow: 0 4px 15px rgba(0, 153, 61, 0.25);
+    transition: all 0.3s ease;
+}
+
+.legado-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 153, 61, 0.35);
+}
+
+.legado-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .lista-reuniones {
+        grid-template-columns: 1fr;
+    }
+    
+    .legado-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .legado-item {
+        width: 90%;
+    }
+    
+    .titulo-seccion {
+        font-size: 1.6rem;
+    }
+}
+/* ===== IMÁGENES EN TARJETAS ===== */
+.tarjeta-imagen {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    margin: -20px -20px 25px -4px;
+    position: relative;
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .tarjeta-imagen img {
+    transform: scale(1.1);
+}
+
+/* Overlay sutil sobre las imágenes */
+.tarjeta-imagen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* SECCIÓN DEL PASTOR */
+.seccion-pastor {
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.pastor-contenido {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.pastor-foto {
+    flex-shrink: 0;
+}
+
+.pastor-foto img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #667eea;
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.pastor-info {
+    flex: 1;
+}
+
+.pastor-info h3 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.pastor-info .cargo {
+    color: #764ba2;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.pastor-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seccion-pastor {
+        margin: 2rem 1rem;
+    }
+    
+    .pastor-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pastor-info p {
+        text-align: center;
+    }
+}
+
+/* ========================================
+   ESTILOS PARA LA PÁGINA: ¿DÓNDE ESTAMOS?
+   ======================================== */
+
+/* Contenedor principal de la sección */
+.seccion-ubicacion {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Imagen principal de la iglesia */
+.imagen-iglesia-principal {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-iglesia-principal img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.imagen-descripcion {
+    background: #f8f9fa;
+    padding: 25px;
+    text-align: center;
+}
+
+.imagen-descripcion h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.imagen-descripcion p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Contenedor del mapa de Google */
+.mapa-container {
+    margin-top: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+}
+
+/* Sección de horarios de servicios */
+.horarios-servicios {
+    background: linear-gradient(135deg, #6aea66 0%, #81a24b 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.horarios-servicios h3 {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* Grid de horarios */
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.horario-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.horario-item strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .ubicacion-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .imagen-iglesia img {
+        height: 300px;
+    }
+
+    .mapa-container iframe {
+        height: 350px;
+    }
+
+    .info-contacto {
+        padding: 20px;
+    }
+
+    .horarios-servicios {
+        padding: 30px 20px;
+    }
+
+    .horarios-servicios h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-ubicacion {
+        padding: 0 15px;
+    }
+
+    .imagen-iglesia img {
+        height: 250px;
+    }
+
+    .mapa-container iframe {
+        height: 300px;
+    }
+
+    .contacto-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
