@@ -3,56 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración | Centro de Vida Cristiana</title>
-    <link rel="stylesheet" href="/admin/admin.css">
+    <title>Login | Segunda Milla</title>
+    <link rel="stylesheet" href="lo">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="login-container">
+        <form class="login-box" action="/php/public/verificacionUser.php" method="POST">
+            <div class="login-header">
+                <img src="../images/logo.png" alt="Logo">
+                <h2>Panel de Control</h2>
+                <p>Ingresa tus credenciales</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
 
-    <!-- ===== MENÚ LATERAL ===== -->
-    <aside class="sidebar">
-        <div class="sidebar__logo">
-        <img src="../logo.png" alt="Logo">
-        <h2>Admin Panel</h2>
-        </div>
-        <ul class="sidebar__menu">
-        <li><a href="#" class="active">🏠 Dashboard</a></li>
-        <li><a href="#">🖼️ Imágenes</a></li>
-        <li><a href="#">📝 Textos</a></li>
-        <li><a href="#">📰 Noticias</a></li>
-        <li><a href="#">👤 Usuarios</a></li>
-        <li><a href="#">⚙️ Configuración</a></li>
-        </ul>
-        <button class="btn-salir">Cerrar sesión</button>
-    </aside>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
-    <main class="main">
-        <header class="main__header">
-        <h1>Panel de Administración</h1>
-        <p>Bienvenido, <strong>Administrador</strong>. Gestiona el contenido del sitio.</p>
-        </header>
-
-        <section class="tarjetas">
-        <div class="tarjeta">
-            <h3>🖼️ Imágenes</h3>
-            <p>Sube o reemplaza imágenes del sitio principal.</p>
-            <button class="btn-accion">Administrar</button>
-        </div>
-
-        <div class="tarjeta">
-            <h3>📝 Textos</h3>
-            <p>Edita los textos visibles en las secciones del sitio.</p>
-            <button class="btn-accion">Editar</button>
-        </div>
-
-        <div class="tarjeta">
-            <h3>📰 Noticias</h3>
-            <p>Agrega, modifica o elimina publicaciones recientes.</p>
-            <button class="btn-accion">Gestionar</button>
-        </div>
-        </section>
-    </main>
-
-    </body>
-    </html>
+            <button type="submit" class="btn-login">Entrar</button>
+            <a href="/index.html" class="back-link">Volver al sitio</a>
+        </form>
+    </div>
+</body>
+</html>
