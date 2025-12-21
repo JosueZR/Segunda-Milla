@@ -10,6 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("SELECT id, password FROM usuarios WHERE usuario = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
+
+    if ($stmt->error) {
+    die("Error en la consulta: " . $stmt->error);
+    }
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {

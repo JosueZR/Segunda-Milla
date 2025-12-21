@@ -1,5 +1,6 @@
-/* 1. Primero el reset y estilos globales */
+/* public/css/main.css */
 @import url("pages/styles.css"); 
-
-/* 2. Al final los estilos específicos con sus propias clases */
 @import url("pages/login.css");
+
+/* Esta ruta sube un nivel y entra a la carpeta admin */
+@import url("pages/admin.css");
