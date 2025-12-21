@@ -1,12 +1,12 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "iglesia_db";
+$host = "sqlXXX.infinityfree.com";
+$user = "if0_40707872";
+$pass = "Robleritos37";
+$db   = "if0_40707872_iglesia_db";
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+if (!$conn) {
+    die("Error de conexión");
 }
 ?>
