@@ -5,11 +5,12 @@
     box-sizing: border-box;
 }
 
-body {
+
+.body-admin {
     font-family: 'Poppins', sans-serif;
     background-color: #f7fafc; /* Color de fondo de la web pública */
     color: #2d3748;
-    display: flex;
+    display: flex !important;
     height: 100vh;
 }
 

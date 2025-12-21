@@ -1,6 +1,4 @@
 /* public/css/main.css */
-@import url("pages/styles.css"); 
-@import url("pages/login.css");
-
-/* Esta ruta sube un nivel y entra a la carpeta admin */
-@import url("pages/admin.css");
+@import url("pages/styles.css"); /* Estilos base */
+@import url("pages/login.css");  /* Estilos login */
+@import url("pages/admin.css");  /* Estilos admin */
