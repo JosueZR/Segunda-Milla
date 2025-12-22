@@ -1,0 +1,98 @@
+/* --- Contenedor Principal --- */
+.page-contacto .contacto-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* --- Formulario --- */
+.page-contacto .contacto-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.page-contacto .contacto-form h3 {
+    color: #33834b;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.page-contacto .form-group {
+    margin-bottom: 20px;
+}
+
+.page-contacto .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.page-contacto .form-group input, 
+.page-contacto .form-group select, 
+.page-contacto .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.page-contacto .btn-enviar {
+    background-color: #33834b;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.page-contacto .btn-enviar:hover {
+    background-color: #1e5631;
+}
+
+/* --- Tarjetas de Información --- */
+.page-contacto .info-card {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 5px solid #33834b;
+}
+
+.page-contacto .info-card h4 {
+    color: #33834b;
+    margin-bottom: 10px;
+}
+
+.page-contacto .redes-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.page-contacto .redes-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.page-contacto .redes-links img:hover {
+    transform: scale(1.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 850px) {
+    .page-contacto .contacto-container {
+        grid-template-columns: 1fr;
+    }
+}

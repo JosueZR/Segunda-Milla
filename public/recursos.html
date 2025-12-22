@@ -1,12 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recursos - Segunda Milla</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/recursos.css">
 </head>
-<body>
-    <h1>Recursos</h1>
-    <p>Esta es la sección de recursos.</p>
+<body class="page-recursos">
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="images/logo.png" alt="Segunda Milla" />
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que_hacemos.html">¿Qué hacemos?</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="donde_estamos.html">¿Dónde estamos?</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="encabezado">
+        <h1>Recursos Multimedia</h1>
+        <p>Predicaciones y Eventos Especiales</p>
+    </header>
+
+    <main class="contenido">
+        
+        <section class="recursos-seccion">
+            <h2 class="titulo-seccion">Predicaciones</h2>
+            
+            <div class="v-compact-container">
+                <div class="v-main-video">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="v-description">
+                    <h3>Mensaje Principal</h3>
+                    <p>Mira el mensaje más reciente compartido con nuestra congregación. Una palabra de esperanza y fe para tu semana.</p>
+                    <p>Grabado en nuestro servicio dominical principal.</p>
+                </div>
+            </div>
+
+            <h3 class="subtitulo-carrusel">Mensajes Anteriores</h3>
+            <div class="carousel-wrapper">
+                <button class="btn-flecha left" onclick="scrollCarousel('predicaciones', -1)">&#10094;</button>
+                
+                <div class="carousel-container" id="carousel-predicaciones">
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Título Predicación 1</h4>
+                    </div>
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Título Predicación 2</h4>
+                    </div>
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Título Predicación 3</h4>
+                    </div>
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Título Predicación 4</h4>
+                    </div>
+                </div>
+
+                <button class="btn-flecha right" onclick="scrollCarousel('predicaciones', 1)">&#10095;</button>
+            </div>
+        </section>
+
+        <hr class="divisor">
+
+        <section class="recursos-seccion">
+            <h2 class="titulo-seccion">Videos de Eventos</h2>
+            
+            <div class="v-compact-container">
+                <div class="v-main-video">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="v-description">
+                    <h3>Momentos Especiales</h3>
+                    <p>Revive los mejores momentos de nuestros eventos y congresos recientes.</p>
+                </div>
+            </div>
+
+            <h3 class="subtitulo-carrusel">Galería de Eventos</h3>
+            <div class="carousel-wrapper">
+                <button class="btn-flecha left" onclick="scrollCarousel('eventos', -1)">&#10094;</button>
+                <div class="carousel-container" id="carousel-eventos">
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Evento Especial 1</h4>
+                    </div>
+                    <div class="video-card-horizontal">
+                        <div class="video-mini">
+                            <iframe src="https://www.youtube.com/embed/Usn71eW0xlE" frameborder="0"></iframe>
+                        </div>
+                        <h4>Evento Especial 2</h4>
+                    </div>
+                </div>
+                <button class="btn-flecha right" onclick="scrollCarousel('eventos', 1)">&#10095;</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function scrollCarousel(id, direction) {
+            const container = document.getElementById('carousel-' + id);
+            const scrollAmount = 320; // Ajusta según el ancho de tus tarjetas
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+/* Estilos específicos para Noticias */
+.noticias-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.noticia-card {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.noticia-imagen {
+    width: 35%;
+}
+
+.noticia-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.noticia-texto {
+    padding: 30px;
+    width: 65%;
+}
+
+.noticia-texto .fecha {
+    color: #00993d;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.noticia-texto h2 {
+    margin: 10px 0;
+    color: #2d3748;
+}
+
+.leer-mas {
+    display: inline-block;
+    margin-top: 15px;
+    color: #33834b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .noticia-card { flex-direction: column; }
+    .noticia-imagen, .noticia-texto { width: 100%; }
+}

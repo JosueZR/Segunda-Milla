@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia Segunda Milla</title>
+    <title>Noticias - Segunda Milla</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/noticias.css">
 </head>
 <body>
-    <h1>Noticias</h1>
-    <p>En esta sección encontrarás las últimas noticias y actualizaciones de nuestra iglesia.</p>
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="images/logo.png" alt="Segunda Milla" />
+        </div>
+        
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que_hacemos.html">¿Qué hacemos?</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="donde_estamos.html">¿Dónde estamos?</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+        </header>
+
+    <header class="encabezado">
+        <h1>Noticias y Actualidad</h1>
+        <p>Entérate de lo que sucede en nuestra comunidad</p>
+    </header>
+
+    <section class="contenido">
+        <div class="noticias-container">
+            <article class="noticia-card">
+                <div class="noticia-imagen">
+                    <img src="images/referancia.jpeg" alt="Evento">
+                </div>
+                <div class="noticia-texto">
+                    <span class="fecha">15 Dic 2025</span>
+                    <h2>Gran Noche de Adoración</h2>
+                    <p>Vivimos un tiempo increíble de presencia de Dios en nuestro último servicio especial...</p>
+                    <a href="#" class="leer-mas">Leer más →</a>
+                </div>
+            </article>
+
+            <article class="noticia-card">
+                <div class="noticia-imagen">
+                    <img src="images/varones.jpg" alt="Reunión">
+                </div>
+                <div class="noticia-texto">
+                    <span class="fecha">10 Dic 2025</span>
+                    <h2>Reunión Mensual de Varones</h2>
+                    <p>Este sábado nos reunimos para fortalecer los lazos de hermandad y estudiar la palabra...</p>
+                    <a href="#" class="leer-mas">Leer más →</a>
+                </div>
+            </article>
+        </div>
+    </section>
 </body>
 </html>

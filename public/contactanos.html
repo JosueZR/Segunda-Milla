@@ -1,13 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contáctanos - Segunda Milla</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/contactanos.css">
 </head>
-<body>
-    <h1>Contáctanos</h1>
-    <p>Esta es la sección de contáctanos.</p>
-    
+<body class="page-contacto">
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="images/logo.png" alt="Segunda Milla" />
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que_hacemos.html">¿Qué hacemos?</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="donde_estamos.html">¿Dónde estamos?</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="encabezado">
+        <h1>Contáctanos</h1>
+        <p>Estamos aquí para escucharte y orar por ti</p>
+    </header>
+
+    <main class="contenido">
+        <div class="contacto-container">
+            
+            <div class="contacto-form">
+                <h3>Envíanos un mensaje</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <select id="asunto" name="asunto">
+                            <option value="informacion">Información General</option>
+                            <option value="oracion">Petición de Oración</option>
+                            <option value="ministerio">Interés en un Ministerio</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <div class="contacto-info">
+                <div class="info-card">
+                    <h4>📍 Ubicación</h4>
+                    <p>Calle Principal #123, Colonia Centro<br>Tijuana, Baja California, México</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>📞 Teléfonos</h4>
+                    <p>Oficina: (664) 123-4567<br>WhatsApp: (664) 987-6543</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>📧 Correo Electrónico</h4>
+                    <p>contacto@segundamilla.com<br>oracion@segundamilla.com</p>
+                </div>
+
+                <div class="redes-sociales">
+                    <h4>Síguenos</h4>
+                    <div class="redes-links">
+                        <a href="#"><img src="images/facebook.webp" alt="Facebook"></a>
+                        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

@@ -2,3 +2,5 @@
 @import url("pages/styles.css"); /* Estilos base */
 @import url("pages/login.css");  /* Estilos login */
 @import url("pages/admin.css");  /* Estilos admin */
+@import url("pages/recursos.css"); /* Nuevo */
+@import url("pages/noticias.css"); /* Nuevo */
