@@ -1,158 +1,101 @@
 /* --- Estilos Generales --- */
 .page-recursos .recursos-seccion {
     margin-bottom: 60px;
+    padding: 0 20px; /* Margen lateral seguro */
+    max-width: 1200px; /* Ancho máximo para que no se estire demasiado */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page-recursos .divisor {
     border: 0;
     height: 1px;
     background: #e2e8f0;
-    margin: 40px 0;
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
-.page-recursos .subtitulo-carrusel {
-    margin-bottom: 15px;
-    color: #4a5568;
-    font-size: 1.3rem;
-    text-align: left;
+.page-recursos .titulo-seccion {
+    color: #33834b; /* Verde institucional */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* --- DISEÑO V-COMPACT (Video Destacado + Texto lateral) --- */
-.page-recursos .v-compact-container {
-    display: flex;
-    gap: 30px;
+/* --- GRID DE VIDEOS (NUEVO DISEÑO PARA MOSTRAR TODOS) --- */
+.page-recursos .video-grid {
+    display: grid;
+    /* Esto hace la magia: crea columnas automáticas de mínimo 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre tarjetas */
+    margin-top: 30px;
+}
+
+/* Tarjeta individual (Estilo basado en tu diseño anterior) */
+.page-recursos .video-card {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
-    align-items: center; /* Alinea el texto verticalmente con el video */
-}
-
-.page-recursos .v-main-video {
-    flex: 2; /* Ocupa 2/3 del espacio */
-    position: relative;
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Tu sombra original */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.page-recursos .video-wrapper {
+.page-recursos .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra más fuerte al pasar mouse */
+}
+
+/* Contenedor del Iframe (Aspect Ratio 16:9) */
+.page-recursos .video-frame {
     position: relative;
-    padding-bottom: 56.25%; /* Formato 16:9 */
-    height: 0;
-    border-radius: 12px;
-    overflow: hidden;
+    width: 100%;
+    padding-bottom: 56.25%; /* Mantiene proporción 16:9 */
+    background: #000;
 }
 
-.page-recursos .video-wrapper iframe {
+.page-recursos .video-frame iframe {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
 }
 
-.page-recursos .v-description {
-    flex: 1; /* Ocupa 1/3 del espacio */
-    text-align: left;
-}
-
-.page-recursos .v-description h3 {
-    color: #2d3748;
-    margin-bottom: 15px;
-    font-size: 1.6rem;
-}
-
-.page-recursos .v-description p {
-    color: #4a5568;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-/* --- CARRUSEL HORIZONTAL --- */
-.page-recursos .carousel-wrapper {
-    position: relative;
+/* Información del video (Texto abajo) */
+.page-recursos .video-info {
+    padding: 20px;
+    flex-grow: 1; /* Hace que todas las tarjetas tengan la misma altura visual */
     display: flex;
     align-items: center;
-}
-
-.page-recursos .carousel-container {
-    display: flex; /* Elementos en fila */
-    flex-wrap: nowrap; /* No permite saltos de línea */
-    overflow-x: auto; /* Scroll horizontal si es necesario */
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 15px 5px;
-    scrollbar-width: none; /* Oculta scroll en Firefox */
-}
-
-.page-recursos .carousel-container::-webkit-scrollbar {
-    display: none; /* Oculta scroll en Chrome/Safari */
-}
-
-.page-recursos .video-card-horizontal {
-    min-width: 280px; /* Ancho fijo para forzar el scroll horizontal */
-    max-width: 280px;
     background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    flex-shrink: 0; /* Evita que la tarjeta se encoja */
-    transition: transform 0.3s ease;
 }
 
-.page-recursos .video-card-horizontal:hover {
-    transform: translateY(-5px);
+.page-recursos .video-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2d3748; /* Tu color de texto oscuro */
+    line-height: 1.5;
+    font-weight: 600;
 }
 
-.page-recursos .video-mini {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+/* Mensaje cuando no hay videos */
+.page-recursos .no-videos {
+    text-align: center;
+    color: #777;
+    background: #f9f9f9;
+    padding: 30px;
     border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 10px;
+    border: 1px dashed #ccc;
 }
-
-.page-recursos .video-mini iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-}
-
-.page-recursos .video-card-horizontal h4 {
-    font-size: 1rem;
-    color: #2d3748;
-    margin-top: 5px;
-}
-
-/* --- BOTONES DE FLECHA --- */
-.page-recursos .btn-flecha {
-    background: #33834b; /* Verde institucional */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    position: absolute;
-}
-
-.page-recursos .btn-flecha:hover {
-    background: #1e5631;
-    transform: scale(1.1);
-}
-
-.page-recursos .btn-flecha.left { left: -22px; }
-.page-recursos .btn-flecha.right { right: -22px; }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-    .page-recursos .v-compact-container {
-        flex-direction: column; /* Apila video y texto en móviles */
+@media (max-width: 600px) {
+    .page-recursos .video-grid {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+        gap: 20px;
     }
     
-    .page-recursos .btn-flecha {
-        display: none; /* Mejor usar scroll táctil en móviles */
+    .page-recursos .titulo-seccion {
+        font-size: 1.5rem;
     }
 }
