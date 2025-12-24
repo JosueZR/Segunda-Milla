@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($pass, $row['password'])) {
             $_SESSION['admin_id'] = $row['id'];
             $_SESSION['admin_user'] = $user;
-            header("Location: ../../public/admin/admin.html"); 
+            header("Location: ../../public/admin/admin.php"); 
             exit();
         }
     }

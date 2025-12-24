@@ -1,3 +1,18 @@
+<?php 
+session_start(); 
+include("../php/includes/conexion.php"); 
+include("includes/funciones_edicion.php");
+
+// Función auxiliar para traer texto
+if (!function_exists('obtenerTexto')) {
+    function obtenerTexto($conn, $seccion, $clave) {
+        $query = "SELECT contenido FROM textos WHERE seccion = '$seccion' AND clave = '$clave'";
+        $res = mysqli_query($conn, $query);
+        $data = mysqli_fetch_assoc($res);
+        return $data ? $data['contenido'] : "Texto no configurado...";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,27 +23,17 @@
     <link rel="stylesheet" href="css/pages/contactanos.css">
 </head>
 <body class="page-contacto">
-    <header class="navbar">
-        <div class="navbar__logo">
-            <img src="images/logo.png" alt="Segunda Milla" />
-        </div>
-        <nav class="navbar__menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="que_hacemos.html">¿Qué hacemos?</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="donde_estamos.html">¿Dónde estamos?</a></li>
-                <li><a href="recursos.html">Recursos</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="contactanos.html">Contáctanos</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+    <?php include("includes/navbar.php"); ?>
 
-    <header class="encabezado">
-        <h1>Contáctanos</h1>
-        <p>Estamos aquí para escucharte y orar por ti</p>
+    <header class="encabezado" style="position:relative;">
+        <?php botonEditar('contactanos', 'titulo_principal'); ?>
+        <h1><?php echo obtenerTexto($conn, 'contactanos', 'titulo_principal'); ?></h1>
+        
+        <div style="position:relative; display:inline-block;">
+            <?php botonEditar('contactanos', 'subtitulo_header'); ?>
+            <p><?php echo obtenerTexto($conn, 'contactanos', 'subtitulo_header'); ?></p>
+        </div>
     </header>
 
     <main class="contenido">
@@ -63,19 +68,23 @@
             </div>
 
             <div class="contacto-info">
-                <div class="info-card">
+                
+                <div class="info-card" style="position:relative;">
+                    <?php botonEditar('contactanos', 'direccion'); ?>
                     <h4>📍 Ubicación</h4>
-                    <p>Calle Principal #123, Colonia Centro<br>Tijuana, Baja California, México</p>
+                    <p><?php echo obtenerTexto($conn, 'contactanos', 'direccion'); ?></p>
                 </div>
                 
-                <div class="info-card">
+                <div class="info-card" style="position:relative;">
+                    <?php botonEditar('contactanos', 'telefonos'); ?>
                     <h4>📞 Teléfonos</h4>
-                    <p>Oficina: (664) 123-4567<br>WhatsApp: (664) 987-6543</p>
+                    <p><?php echo obtenerTexto($conn, 'contactanos', 'telefonos'); ?></p>
                 </div>
 
-                <div class="info-card">
+                <div class="info-card" style="position:relative;">
+                    <?php botonEditar('contactanos', 'emails'); ?>
                     <h4>📧 Correo Electrónico</h4>
-                    <p>contacto@segundamilla.com<br>oracion@segundamilla.com</p>
+                    <p><?php echo obtenerTexto($conn, 'contactanos', 'emails'); ?></p>
                 </div>
 
                 <div class="redes-sociales">
