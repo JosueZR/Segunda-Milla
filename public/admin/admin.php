@@ -188,6 +188,7 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
         
         <a href="#" class="active">🏠 Dashboard</a>
         <a href="../../php/admin/subir_recursos.php?seccion=general">📂 Subir Archivos</a>
+        <a href="gestionar-usuario.html">👥 Gestión de Usuarios</a>
         
         <button class="btn-salir" onclick="location.href='../../php/admin/logout.php'">Cerrar Sesión</button>
     </nav>
