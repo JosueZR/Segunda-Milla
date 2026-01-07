@@ -1,27 +1,50 @@
 <?php
 session_start();
+
+// 1. INCLUIR EL SISTEMA DE PERMISOS
+// (Ajusta la ruta si tu archivo está en otro lado, pero debería ser esta)
+include("../includes/permisos.php");
+
 require_once '../includes/conexion.php'; 
-if (!isset($_SESSION['admin_id'])) { header("Location: ../../public/admin/login.html"); exit(); }
+
+// 2. Verificar si está logueado
+if (!isset($_SESSION['admin_id'])) { 
+    header("Location: ../../public/admin/login.html"); 
+    exit(); 
+}
+
+// 3. Obtener qué sección quiere editar
+$seccion = isset($_GET['seccion']) ? $_GET['seccion'] : 'general';
+
+// =========================================================================
+// 🔒 CANDADO DE SEGURIDAD
+// Aquí bloqueamos el acceso si intenta entrar por URL a una sección prohibida
+// =========================================================================
+if (!tiene_permiso($seccion)) {
+    // Detenemos todo el script aquí. No se carga nada más.
+    die("
+        <div style='font-family:sans-serif; text-align:center; padding:50px; color:#721c24;'>
+            <h1>⛔ Acceso Denegado</h1>
+            <p>No tienes permisos para editar la sección: <strong>" . htmlspecialchars($seccion) . "</strong>.</p>
+            <a href='../../public/admin/admin.php' style='color:#33834b; font-weight:bold;'>Volver al Dashboard</a>
+        </div>
+    ");
+}
+// =========================================================================
+
 
 // --- LÓGICA PARA CARGAR EL .ENV MANUALMENTE ---
-// Buscamos el archivo .env subiendo dos niveles desde esta carpeta
 $envPath = __DIR__ . '/../../.env';
-$apiKey = 'no-api-key'; // Valor por defecto si falla
+$apiKey = 'no-api-key'; 
 
 if (file_exists($envPath)) {
-    // Leemos el archivo línea por línea
     $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
-        // Ignoramos comentarios que empiecen con #
         if (strpos(trim($line), '#') === 0) continue;
-        
-        // Separamos nombre y valor
         if (strpos($line, '=') !== false) {
             list($name, $value) = explode('=', $line, 2);
             $name = trim($name);
             $value = trim($value);
-            
-            // Si encontramos la clave de TinyMCE, la guardamos
             if ($name === 'TINYMCE_API_KEY') {
                 $apiKey = $value;
             }
@@ -30,7 +53,6 @@ if (file_exists($envPath)) {
 }
 // ----------------------------------------------
 
-$seccion = isset($_GET['seccion']) ? $_GET['seccion'] : 'general';
 $clave = isset($_GET['clave']) ? $_GET['clave'] : '';
 
 $link_cancelar = "";

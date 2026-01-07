@@ -47,7 +47,12 @@ function botonEditarIndex($seccion) {
                 <li><a href="public/eventos.php">Eventos</a></li>
                 <li><a href="public/contactanos.php">Contáctanos</a></li>
                 <?php if(isset($_SESSION['admin_id'])): ?>
-                    <li><a href="public/admin/admin.html" style="color:#ffeb3b;">Panel</a></li>
+                    <li style="margin-left: 15px;">
+                        <a href="public/admin/admin.php" 
+                            style="background-color: #2c3e50; color: white; padding: 8px 15px; border-radius: 5px; font-weight: bold; border: 1px solid #34495e;">
+                            Panel Admin
+                        </a>
+                    </li>
                 <?php else: ?>
                     <li><a href="public/admin/login.html">Admin</a></li>
                 <?php endif; ?>
