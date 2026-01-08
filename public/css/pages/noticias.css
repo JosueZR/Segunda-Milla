@@ -32,7 +32,7 @@
     display: block;
     transition: transform 0.5s ease; /* Efecto suave al pasar el mouse */
 }
-/ Efecto Zoom al pasar el mouse */
+
 /* Efecto Zoom al pasar el mouse */
 .noticia-card:hover .noticia-imagen img {
     transform: scale(1.1);

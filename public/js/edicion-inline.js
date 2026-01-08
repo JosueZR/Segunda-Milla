@@ -3,25 +3,24 @@ document.addEventListener("DOMContentLoaded", function() {
     if (document.querySelectorAll('.texto-editable').length > 0) {
         
         tinymce.init({
-            selector: '.texto-editable', // Clase que usaremos en el PHP
-            inline: true,               // MODO EDICIÓN EN LÍNEA
-            menubar: false,             // Ocultar barra de menú superior
-            plugins: 'save image link lists', // Plugins esenciales
+            selector: '.texto-editable', 
+            inline: true,              
+            menubar: false,            
+            plugins: 'save image link lists', 
             toolbar: 'save | undo redo | bold italic | alignleft aligncenter alignright | bullist numlist',
             
-            // Configuración del botón GUARDAR
             save_enablewhendirty: true,
             save_onsavecallback: function () {
                 var editor = this;
                 var contenido = editor.getContent();
-                var nodo = editor.getElement(); // El elemento HTML real
+                var nodo = editor.getElement(); 
                 
-                // Obtener datos del elemento (data-seccion, data-clave)
                 var seccion = nodo.getAttribute('data-seccion');
                 var clave = nodo.getAttribute('data-clave');
 
-                // Enviar a PHP mediante AJAX
-                fetch('../../php/admin/guardar_inline.php', { // Ajusta la ruta si estás en index.php
+                // --- CORRECCIÓN AQUÍ ---
+                // BORRA la ruta vieja ('../../php/...') y pon: rutaBackend
+                fetch(rutaBackend, { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ seccion: seccion, clave: clave, contenido: contenido })
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success') {
-                        // Feedback visual (Borde verde temporal)
                         nodo.style.outline = "2px solid #2ecc71";
                         setTimeout(() => nodo.style.outline = "none", 2000);
                         editor.notificationManager.open({text: '¡Guardado correctamente!', type: 'success', timeout: 2000});
@@ -37,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         alert('Error al guardar: ' + data.message);
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error de conexión. Revisa la consola (F12).');
+                });
             }
         });
     }
