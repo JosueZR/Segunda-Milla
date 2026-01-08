@@ -1,23 +1,27 @@
 <?php
 session_start();
-// 1. Seguridad: Verificar Admin
+
+// 1. Incluir el sistema de permisos (Asegúrate de haber creado este archivo como hablamos)
+include("../../php/includes/permisos.php");
+
+// 2. Seguridad: Verificar Login básico
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.html");
     exit();
 }
 
-// 2. Conexión a la Base de Datos
+// 3. Conexión a la Base de Datos
 include("../../php/includes/conexion.php");
 
-// 3. Obtener Estadísticas Reales (Contar registros)
+// 4. Obtener Estadísticas Reales (Las estadísticas las pueden ver todos, o puedes restringirlas también)
 // Imágenes
 $sql_img = "SELECT COUNT(*) as total FROM multimedia WHERE tipo = 'imagen'";
 $total_imagenes = mysqli_fetch_assoc(mysqli_query($conn, $sql_img))['total'];
 
-// Videos (Suma de predicaciones y eventos)
+// Videos
 $sql_vid = "SELECT COUNT(*) as total FROM multimedia WHERE tipo LIKE 'video%'";
 $res_vid = mysqli_query($conn, $sql_vid);
-$data_vid = mysqli_fetch_assoc($res_vid); // Asegúrate de usar fetch_assoc
+$data_vid = mysqli_fetch_assoc($res_vid);
 $total_videos = $data_vid['total'];
 
 // Noticias
@@ -42,7 +46,7 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             margin: 0;
         }
         
-        /* Sidebar Lateral (Oscura para contraste) */
+        /* Sidebar Lateral */
         .sidebar {
             width: 250px;
             background: #2c3e50;
@@ -63,7 +67,7 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             margin-top: 10px; 
             margin-bottom: 10px; 
             color: white;
-            border-bottom: 1px solid #33834b; /* Línea verde */
+            border-bottom: 1px solid #33834b;
             padding-bottom: 15px; 
         }
         .sidebar a {
@@ -75,7 +79,6 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             margin-bottom: 5px;
             transition: 0.3s;
         }
-        /* Hover y Activo en VERDE */
         .sidebar a:hover, .sidebar a.active { 
             background: #33834b; 
             color: white; 
@@ -120,12 +123,12 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             text-align: center;
-            border-left: 5px solid #33834b; /* Acento verde */
+            border-left: 5px solid #33834b;
         }
         .stat-card h4 { margin: 0; color: #666; font-size: 0.9rem; text-transform: uppercase; }
         .stat-card p { margin: 10px 0 0 0; font-size: 1.8rem; font-weight: bold; color: #333; }
 
-        /* Grid de Tarjetas de Edición */
+        /* Grid de Tarjetas */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -138,7 +141,7 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             text-align: center;
             transition: transform 0.2s;
-            border-top: 4px solid #33834b; /* Borde superior VERDE */
+            border-top: 4px solid #33834b;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -158,24 +161,7 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
             transition: 0.3s;
         }
         .btn-card:hover { background: #266138; } 
-
-        /* Botón de Atajo Grande */
-        .btn-atajo {
-            display: inline-flex;
-            align-items: center;
-            background: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        .btn-atajo span { margin-right: 10px; font-size: 1.2rem; }
-        .btn-atajo:hover { background: #34495e; }
-        
-        /* Variaciones opcionales */
-        .card.home { border-top-color: #f39c12; } /* Naranja para home para diferenciar */
+        .card.home { border-top-color: #f39c12; }
     </style>
 </head>
 <body>
@@ -188,7 +174,10 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
         
         <a href="#" class="active">🏠 Dashboard</a>
         <a href="../../php/admin/subir_recursos.php?seccion=general">📂 Subir Archivos</a>
-        <a href="../../php/admin/gestionar-usuario.php">👥 Gestión de Usuarios</a>
+        
+        <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'super_admin'): ?>
+            <a href="../../php/admin/gestionar-usuario.php">👥 Gestión de Usuarios</a>
+        <?php endif; ?>
         
         <button class="btn-salir" onclick="location.href='../../php/admin/logout.php'">Cerrar Sesión</button>
     </nav>
@@ -218,53 +207,69 @@ $total_noticias = mysqli_fetch_assoc(mysqli_query($conn, $sql_news))['total'];
         
         <div class="cards-grid">
             
+            <?php if(tiene_permiso('inicio')): ?>
             <div class="card home">
                 <h3>🏠 Inicio</h3>
                 <p>Banner principal y textos de bienvenida.</p>
                 <a href="../../index.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('nosotros')): ?>
             <div class="card">
                 <h3>👥 Nosotros</h3>
                 <p>Historia, Pastor y Creencias.</p>
                 <a href="../nosotros.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('que_hacemos')): ?>
             <div class="card">
                 <h3>🙏 ¿Qué Hacemos?</h3>
                 <p>Horarios y Ministerios.</p>
                 <a href="../que_hacemos.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('recursos')): ?>
             <div class="card news">
                 <h3>🎥 Recursos</h3>
                 <p>Predicaciones y Eventos.</p>
                 <a href="../recursos.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('noticias')): ?>
             <div class="card news">
                 <h3>📰 Noticias</h3>
                 <p>Blog y actualidad.</p>
                 <a href="../noticias.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('eventos')): ?>
             <div class="card events">
                 <h3>📅 Eventos</h3>
                 <p>Calendario y congresos.</p>
                 <a href="../eventos.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('donde_estamos')): ?>
             <div class="card">
                 <h3>📍 Ubicación</h3>
                 <p>Mapa y dirección.</p>
                 <a href="../donde_estamos.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
+            <?php if(tiene_permiso('contactanos')): ?>
             <div class="card">
                 <h3>📞 Contáctanos</h3>
                 <p>Teléfonos y correos.</p>
                 <a href="../contactanos.php" target="_blank" class="btn-card">Ir a Editar</a>
             </div>
+            <?php endif; ?>
 
         </div>
     </main>

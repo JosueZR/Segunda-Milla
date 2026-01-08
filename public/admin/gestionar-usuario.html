@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios - Segunda Milla</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../public/css/main.css">
     
     <style>
         /* === ESTILOS VISUALES === */
@@ -70,9 +70,11 @@
         }
         .modal-box {
             background: white; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px;
+            max-height: 90vh; /* Limitar altura si hay muchos permisos */
+            overflow-y: auto; /* Scroll si es necesario */
         }
         .form-group { margin-bottom: 15px; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
         .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
     </style>
 </head>
@@ -82,13 +84,13 @@
 
     <nav class="sidebar">
         <div class="sidebar__logo">
-            <img src="../images/logo.png" alt="Logo" style="height: 50px;">
+            <img src="../../public/images/logo.png" alt="Logo" style="height: 50px;">
             <h2>Admin SM</h2>
         </div>
-        <a href="admin.php">🏠 Dashboard</a>
-        <a href="../../php/admin/subir_recursos.php?seccion=general">📂 Subir Archivos</a>
+        <a href="../../public/admin/admin.php">🏠 Dashboard</a>
+        <a href="subir_recursos.php?seccion=general">📂 Subir Archivos</a>
         <a href="#" class="active">👥 Gestión de Usuarios</a>
-        <button class="btn-salir" onclick="location.href='../../php/admin/logout.php'">Cerrar Sesión</button>
+        <button class="btn-salir" onclick="location.href='logout.php'">Cerrar Sesión</button>
     </nav>
 
     <main class="main-content">
@@ -108,7 +110,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Usuario</th>
-                        <th>Estado</th>
+                        <th>Rol</th> <th>Estado</th>
                         <th style="text-align:right;">Acciones</th>
                     </tr>
                 </thead>
@@ -131,13 +133,44 @@
                     <label>Contraseña</label>
                     <input type="password" name="nuevo_pass" required>
                 </div>
+
+                <div class="form-group">
+                    <label>Rol</label>
+                    <select name="rol" id="selectRol" onchange="mostrarPermisos()">
+                        <option value="super_admin">Super Admin (Acceso Total)</option>
+                        <option value="editor" selected>Editor (Limitado)</option>
+                    </select>
+                </div>
+
+                <div id="listaPermisos" style="margin-top:15px; border:1px solid #ccc; padding:10px; border-radius: 6px;">
+                    <p style="margin:0 0 10px 0; font-weight:bold;">Permitir editar:</p>
+                    <label><input type="checkbox" name="permisos[]" value="inicio" style="width:auto;"> Inicio</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="nosotros" style="width:auto;"> Nosotros</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="que_hacemos" style="width:auto;"> ¿Qué Hacemos?</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="recursos" style="width:auto;"> Recursos</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="noticias" style="width:auto;"> Noticias</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="eventos" style="width:auto;"> Eventos</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="donde_estamos" style="width:auto;"> Ubicación</label><br>
+                    <label><input type="checkbox" name="permisos[]" value="contactanos" style="width:auto;"> Contacto</label>
+                </div>
                 <div class="modal-actions">
-                    <button type="button" onclick="document.getElementById('modalUsuario').style.display='none'" style="padding:10px; cursor:pointer;">Cancelar</button>
+                    <button type="button" onclick="document.getElementById('modalUsuario').style.display='none'" style="padding:10px; cursor:pointer; background:none; border:1px solid #ccc; border-radius:5px;">Cancelar</button>
                     <button type="submit" name="crear_usuario" class="btn-agregar">Guardar</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+    function mostrarPermisos() {
+        var rol = document.getElementById('selectRol').value;
+        var div = document.getElementById('listaPermisos');
+        // Si es super admin, no necesita seleccionar permisos (tiene todos)
+        div.style.display = (rol === 'editor') ? 'block' : 'none';
+    }
+    // Ejecutar al cargar para asegurar el estado inicial
+    window.onload = mostrarPermisos;
+    </script>
 
 </body>
 </html>

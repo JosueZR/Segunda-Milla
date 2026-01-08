@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass = trim($_POST['password']);
 
     // Consulta para buscar al usuario
-    $stmt = $conn->prepare("SELECT id, password FROM usuarios WHERE usuario = ?");
+// Traemos también el rol y los permisos
+    $stmt = $conn->prepare("SELECT id, password, rol, permisos FROM usuarios WHERE usuario = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
 
@@ -21,6 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($pass, $row['password'])) {
             $_SESSION['admin_id'] = $row['id'];
             $_SESSION['admin_user'] = $user;
+
+            $_SESSION['rol'] = $row['rol'];
+            $_SESSION['permisos'] = $row['permisos'];
             header("Location: ../../public/admin/admin.php"); 
             exit();
         }
