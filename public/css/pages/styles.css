@@ -74,8 +74,8 @@ body {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('../../images/referancia.jpeg') center/cover;
+    position: relative; 
+    overflow: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -85,6 +85,13 @@ body {
     width: 100%;
     position: relative;
     padding: 100px 20px 80px;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Clave: hace que la imagen rellene todo sin deformarse */
+    filter: brightness(0.5); /* Oscurece la imagen para que se lea el texto */
 }
 
 .hero__content {
@@ -439,6 +446,7 @@ body {
     }
 }
 /* ===== IMÁGENES EN TARJETAS ===== */
+
 .tarjeta-imagen {
     width: 100%;
     height: 200px;
@@ -468,6 +476,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
 }
 
 /* SECCIÓN DEL PASTOR */

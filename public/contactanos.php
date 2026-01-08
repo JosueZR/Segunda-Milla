@@ -2,16 +2,6 @@
 session_start(); 
 include("../php/includes/conexion.php"); 
 include("includes/funciones_edicion.php");
-
-// Función auxiliar para traer texto
-if (!function_exists('obtenerTexto')) {
-    function obtenerTexto($conn, $seccion, $clave) {
-        $query = "SELECT contenido FROM textos WHERE seccion = '$seccion' AND clave = '$clave'";
-        $res = mysqli_query($conn, $query);
-        $data = mysqli_fetch_assoc($res);
-        return $data ? $data['contenido'] : "Texto no configurado...";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,14 +15,12 @@ if (!function_exists('obtenerTexto')) {
 <body class="page-contacto">
     
     <?php include("includes/navbar.php"); ?>
+    <?php include("includes/load_editor.php"); ?>
 
-    <header class="encabezado" style="position:relative;">
-        <?php botonEditar('contactanos', 'titulo_principal'); ?>
-        <h1><?php echo obtenerTexto($conn, 'contactanos', 'titulo_principal'); ?></h1>
-        
-        <div style="position:relative; display:inline-block;">
-            <?php botonEditar('contactanos', 'subtitulo_header'); ?>
-            <p><?php echo obtenerTexto($conn, 'contactanos', 'subtitulo_header'); ?></p>
+    <header class="encabezado">
+        <?php editable($conn, 'contactanos', 'titulo_principal', 'h1'); ?>
+        <div style="display:inline-block;">
+            <?php editable($conn, 'contactanos', 'subtitulo_header', 'p'); ?>
         </div>
     </header>
 
@@ -68,23 +56,19 @@ if (!function_exists('obtenerTexto')) {
             </div>
 
             <div class="contacto-info">
-                
-                <div class="info-card" style="position:relative;">
-                    <?php botonEditar('contactanos', 'direccion'); ?>
+                <div class="info-card">
                     <h4>📍 Ubicación</h4>
-                    <p><?php echo obtenerTexto($conn, 'contactanos', 'direccion'); ?></p>
+                    <?php editable($conn, 'contactanos', 'direccion', 'p'); ?>
                 </div>
                 
-                <div class="info-card" style="position:relative;">
-                    <?php botonEditar('contactanos', 'telefonos'); ?>
+                <div class="info-card">
                     <h4>📞 Teléfonos</h4>
-                    <p><?php echo obtenerTexto($conn, 'contactanos', 'telefonos'); ?></p>
+                    <?php editable($conn, 'contactanos', 'telefonos', 'p'); ?>
                 </div>
 
-                <div class="info-card" style="position:relative;">
-                    <?php botonEditar('contactanos', 'emails'); ?>
+                <div class="info-card">
                     <h4>📧 Correo Electrónico</h4>
-                    <p><?php echo obtenerTexto($conn, 'contactanos', 'emails'); ?></p>
+                    <?php editable($conn, 'contactanos', 'emails', 'p'); ?>
                 </div>
 
                 <div class="redes-sociales">
